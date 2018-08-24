@@ -1,0 +1,114 @@
+#map {
+				height: 100%;
+				min-height: 200px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+html, body {
+        height: 100%;
+        margin: 0;
+				padding: 0;
+				font-family: 'Roboto', sans-serif;
+			}
+			
+.titleCard{
+	font-size: 30px;
+	text-align: center;
+	padding: 10px;
+	opacity: 50%;
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+      
+.card {
+	background-color: #90CAF9;
+	width: 80%;
+	margin: 0 auto;
+	border-radius: 7px;
+	
+}
+.head {
+	background-color: #90CAF9;
+	margin: 10px 10px 0;
+	border-radius: 7px;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+aside {
+	margin: 10px 1.4%;
+	background-color: #f5f5f5;
+}
+
+.cardDetails {
+	display: flex;
+	background-color: #90CAF9;
+	margin: 10px 10px 0;
+	border-radius: 7px;
+	font-size: 20px;
+}
+
+.details {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.container {
+	background-color: #90CAF9;
+	display: flex;
+	margin: 10px 10px 0;
+	border-radius: 7px;
+}
+
+.map {
+	flex: 1;
+}
+
+.graph {
+	flex: 1;
+}
+
+.userInput {
+	height: 30px;
+	width: 300px;
+	font-size: 100%;
+	display: flex;
+	font-style: italic;
+	background-color: #f5f5f5;
+	border-radius: 7px;
+
+}
+
+@media only screen and (max-width: 600px) {
+	.container {
+		flex-direction: column;
+	}
+
+	.cardDetails {
+		flex-direction: column;
+		background-color: #90CAF9;
+		margin: 10px 10px 0;
+		border-radius: 7px;
+	}
+
+	.details {
+		align-items: flex-start;
+		padding-left: 10px;
+	}
+
+}
+
+.button{
+	border-radius: 8px;
+	height: 50px;
+	width: 100px;
+	background-color: #E3F2FD;
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+
+::value{
+	opacity:0.5;
+}

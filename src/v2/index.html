@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>TYRED</title>
+
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link rel="icon" href="favicon.ico">
+
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <script type="text/javascript" src="ElevationAPI.js"></script>
+
+  <script type="text/javascript" src="Effort.js"></script>
+
+  <script type="text/javascript" src="MapsAPI.js"></script>
+
+  <script type="text/javascript" src="directionsAPI.js"></script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  </head>
+  <body style="background-attachment: #A5D6A7;">
+    <div class="head">
+        <img src="frontbikelogo.png" alt="Logo">
+
+        <div class="titleCard">Let's go places the LAZY WAY<br></div>
+
+        <input class="userInput" type="text" id="start" size="20" placeholder="Enter starting address" onfocus="value=''"><br>
+
+        <input class="userInput" type="text" id="end" placeholder="Enter your destination"><br>
+
+        <center><button class = "button" type="button" id="go">GO</button></center>
+
+    </div>
+	<div class="infowindow-content" id="infowindow_content_start">
+      <span class="place-name"  ></span><br>
+      <span class="place-address" ></span>
+    </div>
+	
+	<div class="infowindow-content" id="infowindow_content_end">
+      <span class="place-name"  ></span><br>
+      <span class="place-address" ></span>
+    </div>
+
+    <div class="container">
+      <aside class="map"><div id="map"></div></aside>
+      <aside class="graph"><div id="chart_div"></div></aside>
+    </div>
+    <div class="cardDetails">
+      <div class="details" id="cardDistance">Distance:</div>
+      <div class="details" id="cardEnergy">Energy:</div>
+      <div class="details" id="cardTime">Time:</div>
+    </div>
+
+  </body>
+
+  <script>
+      function initMap() {
+        directionsService = new google.maps.DirectionsService;
+        directionsDisplay = new google.maps.DirectionsRenderer;
+  	    elevator = new google.maps.ElevationService;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: -36.8485, lng: 174.7633}
+        });
+        directionsDisplay.setMap(map);
+		
+		var start = document.getElementById('start');
+		var end = document.getElementById('end');
+		var options = {
+		types: ['address'],
+		location: {lat: -36.8485, lng: 174.7633},
+		radius: 10000,
+		componentRestrictions: {country: "nz"},
+		strictBounds: true
+		
+		};
+		var infowindowContent = document.getElementById('infowindow_content_start');
+		var infowindowContent_end = document.getElementById('infowindow_content_end');
+		autocomplete(start,options, infowindowContent);
+		autocomplete(end,options, infowindowContent_end);
+		
+		function autocomplete(input, options,infowindow){
+		var autocomplete = new google.maps.places.Autocomplete(input,options,infowindowContent);
+        autocomplete.bindTo('bounds', map);
+
+        // Set the data fields to return when the user selects a place.
+        autocomplete.setFields(['address_components', 'geometry', 'name']);
+
+        var infowindow = new google.maps.InfoWindow();
+        infowindow.setContent(infowindowContent);
+        var marker = new google.maps.Marker({
+          map: map,
+          anchorPoint: new google.maps.Point(0, -29)
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          marker.setVisible(false);
+          var place = autocomplete.getPlace();
+          if (!place.geometry) {
+            // User entered the name of a Place that was not suggested and
+            // pressed the Enter key, or the Place Details request failed.
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
+          }
+
+          // If the place has a geometry, then present it on a map.
+          if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+          } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+          }
+          marker.setPosition(place.geometry.location);
+          marker.setVisible(true);
+
+          var address = '';
+          if (place.address_components) {
+            address = [
+              (place.address_components[0] && place.address_components[0].short_name || ''),
+              (place.address_components[1] && place.address_components[1].short_name || ''),
+              (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+          infowindowContent.children['place-name'].textContent = place.name;
+          infowindowContent.children['place-address'].textContent = address;
+          infowindow.open(map, marker);
+        });
+}
+		
+		
+        
+        google.charts.load('current', {packages: ['corechart', 'line']});
+
+        if (onMapsInit != null) onMapsInit();
+      };
+
+      window.addEventListener("resize", function(event) {
+        initMap();
+      })
+
+	      if (onMapsInit != null) onMapsInit();
+		  
+      
+
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHVHSBJ6sVHbvHCBIWcKMiXiYDqZoB-V8&libraries=places&callback=initMap">
+    </script>
+
+      <span id="outputCalories">
+
+  </span>
+</html>
