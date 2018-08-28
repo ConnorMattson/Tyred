@@ -1,23 +1,23 @@
 body {
-	margin: 0;
+  margin: 0;
 }
 
 span {
-	vertical-align: top;
-	display: inline-block;
-	width: 50%;
-	height: 100vh;
+  vertical-align: top;
+  display: inline-block;
+  width: 50%;
+  height: 100vh;
 
-	background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.25);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .outer {
-	width: 100%;
-	height: 100%;
-	display: inline-flex;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.2);
@@ -26,17 +26,17 @@ span {
 .outer:hover { background-color: rgba(0,0,0,0.5); }
 
 .inner {
-	width: 75%;
-	margin: 0 auto;
-	text-align: center;
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 a { text-decoration: none; }
 
 p {
-	font-family: Verdana, Geneva, sans-serif;
-	font-weight: bold;
-	color: white;
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  color: white;
 }
 
 .title { font-size: calc(16pt + 20 * ((100vw - 310px) / 1610)); }
