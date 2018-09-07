@@ -5,23 +5,38 @@
     <meta charset="utf-8">
     <title>TYRED</title>
 
-    <!-- <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" href="favicon.ico"> -->
+    <link rel="shortcut icon" href="iconSmall.png">
+    <link rel="icon" href="iconSmall.png">
 
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script async deferx
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7UrktdJrstj7eDJVPBjPW-PCf_ogfed0&libraries=places&callback=initAutocomplete">
+    </script>
 
-    <!-- <script type="text/javascript" src="directionsAPI.js"></script>
-    <script type="text/javascript" src="ElevationAPI.js"></script>
-    <script type="text/javascript" src="Effort.js"></script> -->
-
-    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
   </head>
 
   <body>
-    <div id="header">
-      <div id="square"> <div id="flex"><img src="tyredLogoGold.svg"/></div> </div><div id="triangle"></div>
-      <div id="text-box"> Let's go places the lazy way! </div>
+    <div class="landingDiv">
+      <div class="header">
+        <div class="square"> <div class="flex"><img src="tyredLogoGold.svg"/></div> </div><div class="triangle"></div>
+        <div class="text-box"> Let's go places the lazy way! </div>
+      </div>
+
+      <div class="landingBody">
+        <form class="search" onsubmit="return false">
+          <input id="autocompleteStart" placeholder="Starting location" type="text" required></input>
+          <input id="autocompleteFinish" placeholder="Destination" type="text" required></input>
+          <button id="inputSubmit" type="submit" onclick="runSearch()">Find a route!</button>
+        </form>
+      </div>
     </div>
-  
+
+    <div id="loadingBackground" class="loading">
+      <img id="loadingsvg" src="cyclist.svg" />
+    </div>
+
   </body>
 </html>
