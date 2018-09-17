@@ -1,0 +1,28 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  width="48px" height="20px" viewBox="0 0 48 20">
+
+  <rect x="0" y="0" width="8" height="20" fill="#F1BE54" opacity="0.2">
+    <animate attributeName="opacity" values="1; 0.8; 0.6; 0.4; 0.2" 
+      begin="0s" dur="2s" repeatCount="indefinite" />
+  </rect>
+
+  <rect x="10" y="0" width="8" height="20" fill="#F1BE54" opacity="0.2">
+    <animate attributeName="opacity" values="1; 0.8; 0.6; 0.4; 0.2"  
+      begin="0.4s" dur="2s" repeatCount="indefinite" />
+  </rect>
+
+  <rect x="20" y="0" width="8" height="20" fill="#F1BE54" opacity="0.2">
+    <animate attributeName="opacity" values="1; 0.8; 0.6; 0.4; 0.2" 
+      begin="0.8s" dur="2s" repeatCount="indefinite" />
+  </rect>
+
+  <rect x="30" y="0" width="8" height="20" fill="#F1BE54" opacity="0.2">
+    <animate attributeName="opacity" values="1; 0.8; 0.6; 0.4; 0.2" 
+      begin="1.2s" dur="2s" repeatCount="indefinite" />
+  </rect>
+
+  <rect x="40" y="0" width="8" height="20" fill="#F1BE54" opacity="0.2">
+    <animate attributeName="opacity" values="1; 0.8; 0.6; 0.4; 0.2" 
+      begin="1.6s" dur="2s" repeatCount="indefinite" />
+  </rect>
+</svg>

@@ -13,6 +13,11 @@ body {
 	height: 25vh;
 }
 
+#cardsDiv .header {
+	margin: 3vh 0;
+	height: 10vh;
+}
+
 .square {
 	background-color: #153E5C;
 	width: 25vw;
@@ -24,7 +29,7 @@ body {
 	float: right;
 	height: 100%;
 	width: auto;
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	max-width: 95%;
@@ -42,6 +47,10 @@ body {
 	border-top: 25vh solid #153E5C;
 	border-right: 4vh solid transparent;
 	display: inline-block;
+}
+
+#cardsDiv .triangle {
+	border-top: 10vh solid #153E5C;
 }
 
 .text-box {
@@ -66,15 +75,50 @@ body {
 	flex-direction: column;
 }
 
-.search {
+.searchHome {
 	z-index: 2;
 	width: 40vw;
 	margin: 0 auto;
 }
 
+.searchHeader {
+	z-index: 2;
+	margin: 0 auto;
+
+	height: 100%;
+	width: 50vw;
+	float: right;
+	margin-right: 20px;
+
+	vertical-align: top;
+	display: inline-flex;
+}
+
+.searchAside {
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 100%;
+	width: 75%;
+	float: right;
+}
+
+#inputSubmit2 {
+	display: inline-block;
+	width: 21%;
+	height: 80px;
+	margin: auto auto;
+	float: right;
+}
+
+#inputSubmit2:hover {
+	height: 84px;
+	width: 22%;
+}
+
 input {
 	height: 40px;
-	float: left;
 	width: 90%;
 	margin: 10px auto;
 	border-radius: 10px;
@@ -106,13 +150,13 @@ input:focus {
 	outline: none;
 }
 
-#inputSubmit {
+.inputSubmit {
 	font-family: Verdana, Geneva, sans-serif;
 	height: 40px;
 	width: 40%;
 	float: right;
 	margin-top: 6px;
-	margin-right: 1%;
+	margin-right: 5%;
 	margin-bottom: 5px;
 
 	color: #153E5C;
@@ -126,16 +170,15 @@ input:focus {
 	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
 }
 
-#inputSubmit:hover {
+.inputSubmit:hover {
 	height: 45px;
 	margin-top: 3px;
 	margin-bottom: 3px;
-	margin-right: 0;
 	width: 41%;
 
-	-webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.75);
 }
 
 .loading {
@@ -147,10 +190,10 @@ input:focus {
 	position: fixed;
 	left: -100vw;
 	top: 0;
-	-webkit-transition: background-color 0.6s ease-in-out 0s, left 0s;
-	-moz-transition: background-color 0.6s ease-in-out 0s, left 0s;
-	-o-transition: background-color 0.6s ease-in-out 0s, left 0s;
-	transition: background-color 0.6s ease-in-out 0s, left 0s;
+	-webkit-transition: background-color 0.3s ease-in-out 0s, left 0s;
+	-moz-transition: background-color 0.3s ease-in-out 0s, left 0s;
+	-o-transition: background-color 0.3s ease-in-out 0s, left 0s;
+	transition: background-color 0.3s ease-in-out 0s, left 0s;
 
 	display: flex;
 	justify-content: center;
@@ -162,11 +205,70 @@ input:focus {
 	position: fixed;
 	width: 20vw;
 	left: 20vw;
-	-webkit-transition: left 0.6s ease-in-out 0s, opacity 0.6s;
-	-moz-transition: left 0.6s ease-in-out 0s, opacity 0.6s;
-	-o-transition: left 0.6s ease-in-out 0s, opacity 0.6s;
-	transition: left 0.6s ease-in-out 0s, opacity 0.6s;
+	-webkit-transition: left 0.3s ease-in-out 0s, opacity 0.3s;
+	-moz-transition: left 0.3s ease-in-out 0s, opacity 0.3s;
+	-o-transition: left 0.3s ease-in-out 0s, opacity 0.3s;
+	transition: left 0.3s ease-in-out 0s, opacity 0.3s;
 }
+
+.card {
+	z-index: 2;
+	background-color: #153E5C;
+	width: 80%;
+	margin: 10px auto;
+	border-radius: 7px;
+
+	position: relative;
+	top: 30px;
+	opacity: 1;
+
+	-webkit-transition: opacity 0.5s, top 0.5s;
+	-moz-transition: opacity 0.5s, top 0.5s;
+	-o-transition: opacity 0.5s, top 0.5s;
+	transition: opacity 0.5s, top 0.5s;
+}
+
+.graphContainer {
+	position: relative;
+	top: 10px;
+	margin: 10px auto;
+	width: 98%;
+	text-align: justify;
+}
+
+.cardAside {
+	position: relative;
+	overflow: hidden;
+
+	display: inline-block;
+	width: 49%;
+	height: 200px;
+	margin-bottom: 6px;
+	background-image: url("loading.svg");
+	background-color: #153E5C;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 15%;
+}
+
+.stretch {
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0
+}
+
+.cardDetails {
+	display: inline-block;
+	width: 32%;
+	margin: 5px auto;
+	text-align: center;
+
+	font-family: Verdana, Geneva, sans-serif;
+	color: #91B0F2;
+}
+
+#inputSubmit3 { display: none; }
 
 @media only screen and (max-width: 1600px) {
 	.square { width: 30vw; }
@@ -175,10 +277,49 @@ input:focus {
 @media only screen and (max-width: 1200px) {
 	.square { width: 40vw; }
 	.header { margin-top: 2vh; }
-	.search { width: 60vw; }
+	.searchHome { width: 60vw; }
 	.triangle { border-right: 3vh solid transparent; }
 }
 
 @media only screen and (max-width: 800px) {
-	.search { width: 80vw; }
+	.searchHome { width: 80vw; }
+}
+
+@media only screen and (max-width: 660px) {
+	.searchHome { width: 80vw; }
+	.cardDetails { font-size: 10pt;	}
+	#cardsDiv .square { width: 32vw; }
+	#inputSubmit2 {	font-size: 10pt; }
+
+	.cardAside {
+		width: 98%;
+		margin: 0 auto;
+		display: block;
+	}
+
+	.searchHeader {
+		width: 60vw;
+		margin-right: 10px;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+	.card {width: 100vw;}
+}
+
+@media only screen and (max-width: 452px) {
+	#inputSubmit2 {	display: none; }
+	#searchAside2 { width: 100%; }
+
+	.searchHeader {
+		display: inline;
+		width: 56vw;
+	}
+	
+	#inputSubmit3 {
+		display: block;
+		width: 60%;
+		margin: 0 auto;
+		float: none;
+	}
 }

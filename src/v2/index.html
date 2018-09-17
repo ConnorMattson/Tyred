@@ -12,26 +12,51 @@
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     
-    <script async deferx
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7UrktdJrstj7eDJVPBjPW-PCf_ogfed0&libraries=places&callback=initAutocomplete">
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7UrktdJrstj7eDJVPBjPW-PCf_ogfed0&libraries=places&callback=initAPIs">
     </script>
-
   </head>
 
   <body>
-    <div class="landingDiv">
+    <div id="landingDiv">
       <div class="header">
         <div class="square"> <div class="flex"><img src="tyredLogoGold.svg"/></div> </div><div class="triangle"></div>
         <div class="text-box"> Let's go places the lazy way! </div>
       </div>
 
       <div class="landingBody">
-        <form class="search" onsubmit="return false">
-          <input id="autocompleteStart" placeholder="Starting location" type="text" required></input>
-          <input id="autocompleteFinish" placeholder="Destination" type="text" required></input>
-          <button id="inputSubmit" type="submit" onclick="runSearch()">Find a route!</button>
+        <div id="errorMessage"></div>
+        <form class="searchHome" onsubmit="return false">
+
+          <input id="autocompleteStart1" placeholder="Starting location" type="text" required></input>
+          <input id="autocompleteFinish1" placeholder="Destination" type="text" required></input>
+
+          <button id="inputSubmit1" class="inputSubmit" type="submit" onclick="runSearch(1)">Find a route!</button>
         </form>
       </div>
+    </div>
+
+    <div id="cardsDiv" style="display: none;">
+      <div class="header">
+        <div class="square"> <div class="flex"><img src="tyredLogoGold.svg"/></div> </div><div class="triangle"></div>
+        <form class="searchHeader" onsubmit="return false">
+          <div id="errorMessage"></div>
+
+          <aside class="searchAside" id="searchAside2">
+            <input id="autocompleteStart2" placeholder="Starting location" type="text" required></input>
+            <input id="autocompleteFinish2" placeholder="Destination" type="text" required></input>
+          </aside>
+
+          <button id="inputSubmit2" class="inputSubmit" type="submit" onclick="runSearch(2)">Find a route!</button>
+        </form>
+      </div>
+
+      <button id="inputSubmit3" class="inputSubmit" type="submit" onclick="runSearch(2)">Find a route!</button>
+
+      <div id="cardsContainer">
+        <!-- Each card is inserted here via javascript -->
+      </div>
+
     </div>
 
     <div id="loadingBackground" class="loading">
