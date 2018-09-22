@@ -32,6 +32,11 @@ function prepareSearch(sourceType) {
     cyclist.style.opacity = 1;
     background.style.backgroundColor = "rgba(0,0,0,0.5)";
 
+    if (sourceType == 2) {
+      document.getElementById("autocompleteStart1").value = start.value;
+      document.getElementById("autocompleteFinish1").value = end.value;
+    }
+
     // To show some of the animation - if this actually becomes popular (which I doubt - I'm not planning on
     // advertising it) I will remove this, for now its just nice to have so I can demonstrate the loading animation
     setTimeout(() => startSearch(start.value, end.value), 300);
