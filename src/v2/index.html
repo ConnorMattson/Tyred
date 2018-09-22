@@ -25,20 +25,21 @@
       </div>
 
       <div class="landingBody">
-        <div id="errorMessage"></div>
+        
         <form class="searchHome" onsubmit="return false">
+          <div id="errorMessageDiv"><div id="errorMessage"></div></div>
 
           <input id="autocompleteStart1" placeholder="Starting location" type="text" required></input>
           <input id="autocompleteFinish1" placeholder="Destination" type="text" required></input>
 
-          <button id="inputSubmit1" class="inputSubmit" type="submit" onclick="runSearch(1)">Find a route!</button>
+          <button id="inputSubmit1" class="inputSubmit" type="submit" onclick="prepareSearch(1)">Find a route!</button>
         </form>
       </div>
     </div>
 
     <div id="cardsDiv" style="display: none;">
       <div class="header">
-        <div class="square"> <div class="flex"><img src="tyredLogoGold.svg"/></div> </div><div class="triangle"></div>
+        <div class="square"> <a href=""><div class="flex"><img src="tyredLogoGold.svg"/></div></a> </div><div class="triangle"></div>
         <form class="searchHeader" onsubmit="return false">
           <div id="errorMessage"></div>
 
@@ -47,11 +48,11 @@
             <input id="autocompleteFinish2" placeholder="Destination" type="text" required></input>
           </aside>
 
-          <button id="inputSubmit2" class="inputSubmit" type="submit" onclick="runSearch(2)">Find a route!</button>
+          <button id="inputSubmit2" class="inputSubmit" type="submit" onclick="prepareSearch(2)">Find a route!</button>
         </form>
       </div>
 
-      <button id="inputSubmit3" class="inputSubmit" type="submit" onclick="runSearch(2)">Find a route!</button>
+      <button id="inputSubmit3" class="inputSubmit" type="submit" onclick="prepareSearch(2)">Find a route!</button>
 
       <div id="cardsContainer">
         <!-- Each card is inserted here via javascript -->
